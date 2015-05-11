@@ -14,7 +14,7 @@ class W1Bus(object):
     
     def getSensors(self):
         #path scannen mit bus_master_template
-        #für jeden bus_master die slaves auslesen
+        #fuer jeden bus_master die slaves auslesen
         f=open(self.getMasterSlavesFileName())
         for line in f:
             self.slaves[line.strip()]=DS18B20(self.getSensorAddress(line.strip()),line.strip())
