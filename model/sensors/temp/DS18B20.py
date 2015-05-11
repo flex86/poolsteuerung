@@ -1,6 +1,7 @@
 from time import *
 import re
-from sensors.Sensor import Sensor
+from model.sensors.Sensor import Sensor
+
 
 class DS18B20(Sensor):
     
