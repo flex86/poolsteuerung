@@ -1,7 +1,7 @@
 import sqlite3
 class Db(object):
     def __init__(self,config):
-        self.connection=config.database
+        self.conn=sqlite3.connect(config.database)
     def insert(self,table,values):
         id=0
         return id

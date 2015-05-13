@@ -1,7 +1,7 @@
-from model.sensors.temp.DS18B20 import DS18B20
+from model.sensors.Sensor import Sensor
 class W1Bus(object):
-    #path='C:/Projekte/privat/Python/Poolsteuerung/sys/bus/w1/devices/'
-    path='/sys/bus/w1/devices/'
+    path='C:/Projekte/privat/Python/Poolsteuerung/sys/bus/w1/devices/'
+    #path='/sys/bus/w1/devices/'
     bus_master_template="w1_bus_master{}"
     w1_master_slave_count="w1_master_slave_count"
     w1_master_slaves="w1_master_slaves"
@@ -17,7 +17,7 @@ class W1Bus(object):
         #fuer jeden bus_master die slaves auslesen
         f=open(self.getMasterSlavesFileName())
         for line in f:
-            self.slaves[line.strip()]=DS18B20(self.getSensorAddress(line.strip()),line.strip())
+            self.slaves[line.strip()]=Sensor.factory('DS18B20',self.getSensorAddress(line.strip()),line.strip())
 
         return self.slaves
 
